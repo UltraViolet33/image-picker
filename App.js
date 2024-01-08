@@ -27,11 +27,11 @@ export default function App() {
 
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
 
-    if (pickerResult.cancelled === true) {
+    if (pickerResult.canceled === true) {
       return;
     }
 
-    setSelectedImage({ localUri: pickerResult.uri });
+    setSelectedImage({ localUri: pickerResult.assets[0].uri });
   };
 
   let openShareDialogAsync = async () => {
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    gap: 20,
   },
   logo: {
     width: 305,
